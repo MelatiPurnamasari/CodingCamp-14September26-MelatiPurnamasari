@@ -1,0 +1,389 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #f5f7f9;
+  --card: #ffffff;
+  --text: #333333;
+  --muted: #777777;
+  --border: #e5e7eb;
+  --blue: #3498db;
+  --blue-dark: #2583c1;
+  --red: #ef5350;
+  --green: #2ecc71;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+body.dark {
+  --bg: #121820;
+  --card: #1c2530;
+  --text: #edf2f7;
+  --muted: #aab4c0;
+  --border: #34404d;
+  --blue: #4aa9e8;
+  --blue-dark: #3195d2;
+  --shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.container {
+  width: min(100% - 32px, 1120px);
+  margin: 0 auto;
+  padding: 22px 0 30px;
+}
+
+.page-header {
+  position: relative;
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.page-header h1 {
+  margin: 0;
+  font-size: clamp(1.35rem, 3vw, 1.8rem);
+  font-weight: 700;
+}
+
+.theme-btn {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--card);
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  box-shadow: var(--shadow);
+}
+
+.card h2 {
+  margin: 0 0 12px;
+  font-size: 1rem;
+}
+
+.balance-card {
+  text-align: center;
+  padding: 25px 20px;
+  margin-bottom: 16px;
+}
+
+.balance-label {
+  margin: 0 0 6px;
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+}
+
+.balance-amount {
+  margin: 0;
+  color: var(--blue);
+  font-size: clamp(2rem, 7vw, 2.65rem);
+  font-weight: 700;
+}
+
+.form-card {
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.form-group {
+  margin-bottom: 12px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+input,
+select {
+  width: 100%;
+  min-height: 40px;
+  padding: 9px 11px;
+  border: 1px solid #d7dce1;
+  border-radius: 3px;
+  background: var(--card);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.85rem;
+}
+
+input:focus,
+select:focus,
+button:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+.primary-btn {
+  width: 100%;
+  min-height: 40px;
+  border: 0;
+  border-radius: 3px;
+  background: var(--blue);
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.primary-btn:hover {
+  background: var(--blue-dark);
+}
+
+.form-message {
+  min-height: 18px;
+  margin: 2px 0 8px;
+  color: var(--red);
+  font-size: 0.78rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.summary-card,
+.sort-card {
+  padding: 16px;
+}
+
+.summary-items {
+  display: flex;
+  gap: 30px;
+}
+
+.summary-items div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.summary-items span {
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.summary-items strong {
+  font-size: 1.1rem;
+}
+
+.sort-card select {
+  margin-top: 4px;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.transactions-card,
+.chart-card {
+  padding: 16px;
+  min-height: 370px;
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.count-badge {
+  min-width: 26px;
+  padding: 4px 7px;
+  border-radius: 12px;
+  background: #eef6fc;
+  color: var(--blue);
+  text-align: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.transaction-list {
+  max-height: 335px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.transaction-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.transaction-item:last-child {
+  border-bottom: 0;
+}
+
+.transaction-info {
+  min-width: 0;
+}
+
+.transaction-name {
+  margin: 0 0 5px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.transaction-amount {
+  margin: 0 0 6px;
+  color: var(--blue);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.category-tag {
+  display: inline-block;
+  padding: 3px 6px;
+  border-radius: 2px;
+  background: #f0f2f4;
+  color: #666666;
+  font-size: 0.68rem;
+}
+
+body.dark .category-tag {
+  background: #2a3541;
+  color: #cbd5df;
+}
+
+.delete-btn {
+  flex: 0 0 auto;
+  border: 0;
+  border-radius: 3px;
+  padding: 7px 10px;
+  background: var(--red);
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  filter: brightness(0.92);
+}
+
+.empty-state,
+.empty-chart {
+  color: var(--muted);
+  text-align: center;
+  font-size: 0.82rem;
+}
+
+.empty-state {
+  padding: 70px 15px;
+}
+
+.chart-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 390px;
+  height: 290px;
+  margin: 0 auto;
+}
+
+.chart-card .empty-chart {
+  display: none;
+}
+
+.chart-card.no-data .chart-wrapper {
+  display: none;
+}
+
+.chart-card.no-data .empty-chart {
+  display: block;
+  padding-top: 80px;
+}
+
+footer {
+  margin-top: 20px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.7rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 720px) {
+  .container {
+    width: min(100% - 20px, 600px);
+    padding-top: 16px;
+  }
+
+  .page-header {
+    padding-right: 42px;
+  }
+
+  .stats-grid,
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .transactions-card,
+  .chart-card {
+    min-height: auto;
+  }
+
+  .transaction-list {
+    max-height: 380px;
+  }
+}
+
+@media (max-width: 430px) {
+  .container {
+    width: calc(100% - 16px);
+  }
+
+  .balance-card,
+  .form-card,
+  .summary-card,
+  .sort-card,
+  .transactions-card,
+  .chart-card {
+    padding: 14px;
+  }
+
+  .transaction-item {
+    align-items: flex-start;
+  }
+
+  .delete-btn {
+    padding: 7px 9px;
+  }
+}
